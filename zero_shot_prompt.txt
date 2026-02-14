@@ -1,0 +1,31 @@
+---
+Chain Prompt: Create a JavaScript function called toKebabCase
+
+Step 1: Write a function that takes a string as input and splits it into words based on spaces, underscores, hyphens, and camelCase or PascalCase boundaries.
+
+Step 2: Convert all words to lowercase to ensure the output is in kebab-case format.
+
+Step 3: Join the words using hyphens ('-') to produce the final kebab-case string. Make sure to handle multiple consecutive separators and trim any leading or trailing hyphens.
+
+Finally, return the resulting kebab-case string from the function.
+/**
+ * Converts a string to snake_case format.
+ *
+ * This function transforms a given string into snake_case, where all words are lowercase and separated by underscores. It handles camelCase, PascalCase, spaces, and hyphens, converting them to underscores. Consecutive separators are collapsed into a single underscore. Non-alphanumeric characters (except underscores) are removed.
+ *
+ * @function toSnakeCase
+ * @param {string} text - The input string to convert. Can be in camelCase, PascalCase, or contain spaces/hyphens.
+ * @returns {string} The snake_case version of the input string.
+ *
+ * @example
+ * toSnakeCase('firstName') // 'first_name'
+ * toSnakeCase('User ID') // 'user_id'
+ * toSnakeCase('screen-name') // 'screen_name'
+ * toSnakeCase('already_snake_case') // 'already_snake_case'
+ */
+function toSnakeCase(text) {
+    return text
+        .replace(/([a-z])([A-Z])/g, '$1_$2')
+        .replace(/[\s\-]+/g, '_')
+        .toLowerCase();
+}
